@@ -1,7 +1,7 @@
-//import java.util.*;
+import java.util.*;
 
 public class DotChaser {
-  //public static Random rand = new Random(System.currentTimeMillis());
+  public static Random rand = new Random(System.currentTimeMillis());
   public static void main(String[] args) {
     int N = 200;
 
@@ -21,7 +21,7 @@ public class DotChaser {
         list.addThing(new TypeC());
       }
       list.printAll();
-      list.moveAll();
+      list.moveAll(rand);
       count++;
     }
   }

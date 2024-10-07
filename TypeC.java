@@ -9,17 +9,17 @@ public class TypeC extends Thing{
   //(i.e. left-right-left-right-… sequences, or draws a circle, triangle, or other shape). 
   public Random rand = new Random(System.currentTimeMillis());
 
-  public void maybeTurn(Thing t) {
+  public void maybeTurn(Random rand) {
     int i = rand.nextInt(4);
     if(i == 1) {
-      rightTurn(t);
+      rightTurn();
     }
     if(i == 0 || i == 2) {
-      step(t);
+      step();
     }
     if(i == 4) {
-      leftTurn(t);
+      leftTurn();
     }
-    step(t);
+    step();
   }
 }

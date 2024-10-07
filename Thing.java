@@ -1,3 +1,4 @@
+import java.util.*;
 public abstract class Thing extends ThingList{
      /**
    * A "Thing" moves in a grid world. A TypeA Thing randomly
@@ -10,31 +11,34 @@ public abstract class Thing extends ThingList{
 
     // dir: 0=North, 1=East, 2=South, 3=West.
     // timeSinceLast: this is only important for "TypeB" Things.
-    public int  row, col, dir, timeSinceLast;
-    public char color = 'r';
+    protected int  row;
+    protected int  col;
+    protected int  dir;
+    protected int  timeSinceLast;
+    protected char lab;
 
     public Thing (int col, int row, int dir, char c) {
         this.col = col;
         this.row = row;
         this.dir = dir;
-        this.color = c;
+        this.lab = c;
     }
 
-    public void rightTurn(Thing t) {
+    public void rightTurn() {
         //sets dir to 1 (east)
-        t.dir = (t.dir + 1) % 4;
+        this.dir = (this.dir + 1) % 4;
     }
     
-    public void leftTurn(Thing t) {
+    public void leftTurn() {
         //sets dir to 3 (west)
-        t.dir = (t.dir + 3) % 4;
+        this.dir = (this.dir + 3) % 4;
     }
     
-    public void step(Thing t) {
+    public void step() {
         final int[] dc = {0, 1, 0, -1}, dr = {1, 0, -1, 0};
-        t.row += dr[t.dir];
-        t.col += dc[t.dir];
+        this.row += dr[this.dir];
+        this.col += dc[this.dir];
     }
 
-    public abstract void maybeTurn(Thing t);
+    public abstract void maybeTurn(Random rand);
 }

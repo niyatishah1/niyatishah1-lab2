@@ -6,20 +6,20 @@ public class TypeB extends Thing{
     }
     //TypeB, which randomly chooses left, right or straight every 10th round.
     public Random rand = new Random(System.currentTimeMillis());
-    public void maybeTurn(Thing t) {
+    public void maybeTurn(Random rand) {
         int i = rand.nextInt(3);
     
-        t.timeSinceLast++;
+        this.timeSinceLast++;
     
-        if (t.timeSinceLast == 10) {
-            t.timeSinceLast = 0;
+        if (this.timeSinceLast == 10) {
+            this.timeSinceLast = 0;
 
             if (i == 1) {
-                rightTurn(t);
+                rightTurn();
             }
 
             if (i == 2) {
-                leftTurn(t);
+                leftTurn();
             }
         }
     }

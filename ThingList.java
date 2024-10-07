@@ -1,7 +1,7 @@
-//import java.util.*;
+import java.util.*;
 
 public class ThingList {
-    //public Random rand = new Random(System.currentTimeMillis());
+    public Random rand = new Random(System.currentTimeMillis());
     //Node L = null;
     //int count = 0;
     public Node head;
@@ -22,7 +22,7 @@ public class ThingList {
     public void printAll() {
         Node it = head;
         while(it.next != null) {
-            System.out.println(it.data.row + " " + it.data.col + " " + it.data.color);
+            System.out.println(it.data.row + " " + it.data.col + " " + it.data.lab);
             it = it.next;
         }
         
@@ -30,13 +30,12 @@ public class ThingList {
         System.out.flush();
     }
 
-    public void moveAll() {
+    public void moveAll(Random rand) {
         // Move each thing.
         Node it = head;
         while(it.next != null) {
-            //FIX
-            it.data.maybeTurn(it.data);
-            it.data.step(it.data);
+            it.data.maybeTurn(rand);
+            it.data.step();
             it = it.next;
         }
     }
