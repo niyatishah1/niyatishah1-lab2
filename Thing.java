@@ -1,4 +1,10 @@
 public abstract class Thing extends ThingList{
+     /**
+   * A "Thing" moves in a grid world. A TypeA Thing randomly
+   * decides to turn left or right (or not turn) every "round",
+   * and, afterward, takes a step forward.  A TypeB Thing
+   * only considers making a random turn every 10th round.
+   **/
     //should not have any if statements, everything done through polymorphism
     //don't use static methods, other than public static void main
 

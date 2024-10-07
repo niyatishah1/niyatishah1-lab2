@@ -1,4 +1,4 @@
-import java.util.*;
+//import java.util.*;
 
 public class ThingList {
     //public Random rand = new Random(System.currentTimeMillis());
@@ -22,7 +22,7 @@ public class ThingList {
     public void printAll() {
         Node it = head;
         while(it.next != null) {
-            System.out.println(it.data.row + " " + it.data.col + " " + it.data.lab);
+            System.out.println(it.data.row + " " + it.data.col + " " + it.data.color);
             it = it.next;
         }
         
@@ -35,8 +35,8 @@ public class ThingList {
         Node it = head;
         while(it.next != null) {
             //FIX
-            maybeTurn(it.data);
-            step(it.data);
+            //maybeTurn(it.data);
+            //step(it.data);
             it = it.next;
         }
     }

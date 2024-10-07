@@ -1,8 +1,8 @@
 import java.util.*;
 
 public class TypeC extends Thing{
-  public TypeC (int col, int row) {
-      super(col, row, 3, 'y');
+  public TypeC () {
+      super(50, 50, 3, 'y');
   }
   //Now that you have a nice object-oriented version, create a third type of Thing called TypeC. 
   //What exactly it does is up to you, but it needs to use some diagonal motion 
@@ -10,9 +10,16 @@ public class TypeC extends Thing{
   public Random rand = new Random(System.currentTimeMillis());
 
   public void maybeTurn(Thing t) {
-      //int i = rand.nextInt(3);
+    int i = rand.nextInt(4);
+    if(i == 1) {
       rightTurn(t);
+    }
+    if(i == 0 || i == 2) {
       step(t);
+    }
+    if(i == 4) {
       leftTurn(t);
+    }
+    step(t);
   }
 }

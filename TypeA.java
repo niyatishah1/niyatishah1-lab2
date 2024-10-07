@@ -1,8 +1,8 @@
 import java.util.*;
 
 public class TypeA extends Thing{
-    public TypeA(int col, int row) {
-        super(col,row, 3, 'y');
+    public TypeA() {
+        super(45, 50, 3, 'r');
     }
     //randomly choses left, right or straight at every round
     public Random rand = new Random(System.currentTimeMillis());
