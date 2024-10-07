@@ -35,8 +35,8 @@ public class ThingList {
         Node it = head;
         while(it.next != null) {
             //FIX
-            //maybeTurn(it.data);
-            //step(it.data);
+            it.data.maybeTurn(it.data);
+            it.data.step(it.data);
             it = it.next;
         }
     }

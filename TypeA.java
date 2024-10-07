@@ -10,11 +10,11 @@ public class TypeA extends Thing{
         int i = rand.nextInt(3);
 
         if (i == 1) {
-            rightTurn(t);
+            rightTurn(this);
         }
 
         if (i == 2) {
-            leftTurn(t);
+            leftTurn(this);
         }
     }
 
