@@ -1,59 +1,34 @@
-public class Thing {
-    
+public abstract class Thing extends ThingList{
     //should not have any if statements, everything done through polymorphism
     //don't use static methods, other than public static void main
 
     // dir: 0=North, 1=East, 2=South, 3=West.
     // timeSinceLast: this is only important for "TypeB" Things.
     public int  row, col, dir, timeSinceLast;
-    public char lab = 'r';
-    public boolean isTypeB;
+    public char color = 'r';
+
+    public Thing (int col, int row, int dir, char c) {
+        this.col = col;
+        this.row = row;
+        this.dir = dir;
+        this.color = c;
+    }
 
     public void rightTurn(Thing t) {
+        //sets dir to 1 (east)
         t.dir = (t.dir + 1) % 4;
     }
     
     public void leftTurn(Thing t) {
+        //sets dir to 3 (west)
         t.dir = (t.dir + 3) % 4;
     }
     
-    public void maybeTurn(Thing t) {
-        int i = rand.nextInt(3);
-    
-        if (t.isTypeB) {
-          t.timeSinceLast++;
-    
-          if (t.timeSinceLast == 10) {
-            t.timeSinceLast = 0;
-    
-            if (i == 1) {
-              rightTurn(t);
-            }
-    
-            if (i == 2) {
-              leftTurn(t);
-            }
-          }
-        } 
-        else   {
-          if (i == 1) {
-            rightTurn(t);
-          }
-    
-          if (i == 2) {
-            leftTurn(t);
-          }
-        }
-      }
-    
     public void step(Thing t) {
-        final int[] dc = {
-          0, 1, 0, -1
-        }, dr = {
-          1, 0, -1, 0
-        };
+        final int[] dc = {0, 1, 0, -1}, dr = {1, 0, -1, 0};
         t.row += dr[t.dir];
         t.col += dc[t.dir];
     }
 
+    public abstract void maybeTurn(Thing t);
 }
